@@ -100,7 +100,9 @@ function Glossary(props) {
 }
 ```
 
----
+----
+
+<!-- .slide: style="text-align: left" -->
 
 Puedes asignar una colección de elementos a un arreglo de fragmentos como lo haría con cualquier otro tipo de elemento:
 
@@ -120,6 +122,10 @@ function Glossary(props) {
 }
 ```
 
+----
+
+<!-- .slide: style="text-align: left" -->
+
 o utilizando la sintaxis corta cuando el Fragment no necesita ninguna prop en la etiqueta,
 
 ```jsx
@@ -133,7 +139,13 @@ function ListItem({ item }) {
 }
 ```
 
+----
+
 ## Formularios accesibles
+
+----
+
+<!-- .slide: style="text-align: left" -->
 
 ### Etiquetas
 
@@ -145,6 +157,10 @@ Los siguientes recursos nos muestran cómo hacer esto:
 -  [WebAIM nos muestra cómo etiquetar elementos](http://webaim.org/techniques/forms/controls)
 -  [El Grupo Paciello explica los nombres accesibles](https://www.paciellogroup.com/blog/2017/04/what-is-an-accessible-name/)
 
+----
+
+<!-- .slide: style="text-align: left" -->
+
 Aunque estas prácticas estándar de HTML se pueden usar directamente en React, se debe tener en cuenta que el atributo `for` se escribe como `htmlFor` en JSX, por lo que la migración de las mismas no es completamente directa. Cabe destacar sin embargo que el mapeo de atributos es muy sencillo utilizando esta librería:
 
 ```jsx
@@ -152,11 +168,21 @@ Aunque estas prácticas estándar de HTML se pueden usar directamente en React, 
 <input id="namedInput" type="text" name="name"/>
 ```
 
+----
+
+<!-- .slide: style="text-align: left" -->
+
 ## Eventos
 
 El desarrollador debe asegurarse de que el usuario pueda acceder a todos los eventos asociados al mouse. Para esto uno debería poder hacer utilizando solo el teclado.
 
+----
+
+<!-- .slide: style="text-align: left" -->
+
 En el ejemplo siguiente esto no sucede dado solo puede funcionar bien para los usuarios con dispositivos de puntero, como un ratón, pero si lo hace solo con el teclado la funcionalidad se rompe al pasar al elemento siguiente, ya que el objeto `window` nunca recibe el evento `click`. Esto puede llevar a una funcionalidad oculta que impide que los usuarios utilicen su aplicación.
+
+----
 
 ```jsx
 class OuterClickExample extends React.Component {
@@ -206,6 +232,8 @@ class OuterClickExample extends React.Component {
   }
 }
 ```
+
+----
 
 La misma funcionalidad se puede lograr utilizando un controlador de eventos apropiado, como `onBlur` y `onFocus`:
 
@@ -270,9 +298,15 @@ class BlurExample extends React.Component {
 }
 ```
 
+----
+
 ## Herramientas de desarrollo 
 
 Hay una serie de herramientas que podemos utilizar para ayudar en la creación de aplicaciones web accesibles.
+
+----
+
+<!-- .slide: style="text-align: left" -->
 
 ### El teclado
 
@@ -283,6 +317,10 @@ La comprobación más fácil y también una de las más importantes es, por much
 -  Usando Enter para activar elementos.
 
 Cuando sea necesario, utilice las teclas de flecha del teclado para interactuar con algunos elementos, como menús y menús desplegables.
+
+----
+
+<!-- .slide: style="text-align: left" -->
 
 ### Asistencia para el desarrollo
 
@@ -297,9 +335,17 @@ El complemento [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugi
 }
 ```
 
+----
+
+<!-- .slide: style="text-align: left" -->
+
 ### Probando accesibilidad en un navegador
 
 Existen varias herramientas que pueden ejecutar auditorías de accesibilidad en las páginas web de su navegador. Utilízalas en combinación con otras comprobaciones de accesibilidad que se mencionan aquí, ya que solo pueden probar la accesibilidad técnica de su HTML.
+
+----
+
+<!-- .slide: style="text-align: left" -->
 
 #### Inspectores de accesibilidad y el Árbol de Accesibilidad
 
@@ -310,6 +356,10 @@ En algunos navegadores podemos ver fácilmente la información de accesibilidad 
 -  [Usando el inspector de accesibilidad en Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
 -  [Activar el inspector de accesibilidad en Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
 
+
+----
+
+<!-- .slide: style="text-align: left" -->
 
 ### Lectores de pantalla
 
