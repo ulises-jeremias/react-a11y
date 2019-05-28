@@ -162,7 +162,7 @@ function ListItem({ item }) {
 
 Todos los controles de formulario HTML, como **<input>** y **<textarea>**, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
 
-Los siguientes recursos nos muestran cómo hacer esto:
+Los siguientes representations nos muestran cómo hacer esto:
 
 -  [El W3C nos muestra cómo etiquetar elementos](https://www.w3.org/WAI/tutorials/forms/labels/)
 -  [WebAIM nos muestra cómo etiquetar elementos](http://webaim.org/techniques/forms/controls)
