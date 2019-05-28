@@ -12,3 +12,26 @@ Para ello, alrededor de React existe un completo ecosistema de _módulos_, _herr
 ----
 
 React representa una base sólida sobre la cual se puede **construir casi cualquier cosa con Javascript**.
+
+----
+
+**Ejemplo de una componente renderizable en react**
+
+```jsx
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                Soy un ejemplo hecho en react :D
+            </div>
+        )
+    }
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+<!-- .element: contenteditable="true" -->

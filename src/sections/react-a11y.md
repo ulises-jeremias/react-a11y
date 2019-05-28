@@ -28,7 +28,7 @@ React es _totalmente compatible_ con la creación de _sitios web accesibles_, a 
 
 ### WCAG
 
-Las `Pautas de Accesibilidad de Contenido Web` (_WCAG por sus siglas en inglés_) proporcionan pautas para crear sitios web accesibles.
+Las **Pautas de Accesibilidad de Contenido Web** (_WCAG por sus siglas en inglés_) proporcionan pautas para crear sitios web accesibles.
 
 ----
 
@@ -42,7 +42,11 @@ El documento **Iniciativa de Accesibilidad Web - Aplicaciones de Internet Enriqu
 
 <!-- .slide: style="text-align: left" -->
 
-Se debe tener en cuenta que todos los atributos HTML _aria-*_ son totalmente compatibles con JSX. Mientras que la mayoría de las propiedades y atributos de DOM en React son **camelCase**, estos atributos **deben tener un guión** (también conocido como kebab-case, lisp-case, etc.) ya que están en HTML simple:
+Se debe tener en cuenta que todos los atributos HTML _aria-*_ son totalmente compatibles con JSX. 
+
+<small>
+Mientras que la mayoría de las propiedades y atributos de DOM en React son **camelCase**, estos atributos **deben tener un guión** (también conocido como kebab-case, lisp-case, etc.) ya que están en HTML simple.
+</small>
 
 ----
 
@@ -55,11 +59,12 @@ Se debe tener en cuenta que todos los atributos HTML _aria-*_ son totalmente com
   type="text"
   aria-label={labelText}
   aria-required="true"
-  onChange={onchangeHandler}
+  onChange={onChangeHandler}
   value={inputValue}
   name="name"
 />
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -73,7 +78,11 @@ El HTML semántico es la base de la accesibilidad en una aplicación web. Hacien
 
 <!-- .slide: style="text-align: left" -->
 
-A veces rompemos la semántica HTML cuando agregamos elementos `<div>` a nuestro JSX para hacer que nuestro código React funcione, especialmente cuando trabajamos con listas (`<ol>`, `<ul>` y `<dl>`) y la etiqueta `<table>` de HTML. En estos casos, deberíamos usar _Fragmentos React_ para agrupar varios elementos.
+A veces rompemos la semántica HTML cuando agregamos elementos **<div>** en JSX.
+
+-  Parche para hacer que nuestro código React funcione, especialmente cuando trabajamos con listas (**<ol>**, **<ul>** y **<dl>**) y la etiqueta **<table>** de HTML. 
+
+-  En estos casos, deberíamos usar _**Fragmentos React**_ para agrupar varios elementos.
 
 ----
 
@@ -99,6 +108,7 @@ function Glossary(props) {
   )
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -111,7 +121,6 @@ function Glossary(props) {
   return (
     <dl>
       {props.items.map(item => (
-        // Fragments should also have a `key` prop when mapping collections
         <Fragment key={item.id}>
           <dt>{item.term}</dt>
           <dd>{item.description}</dd>
@@ -121,6 +130,7 @@ function Glossary(props) {
   )
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -138,6 +148,7 @@ function ListItem({ item }) {
   )
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -149,7 +160,7 @@ function ListItem({ item }) {
 
 ### Etiquetas
 
-Todos los controles de formulario HTML, como `<input>` y `<textarea>`, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
+Todos los controles de formulario HTML, como **<input>** y **<textarea>**, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
 
 Los siguientes recursos nos muestran cómo hacer esto:
 
@@ -161,12 +172,15 @@ Los siguientes recursos nos muestran cómo hacer esto:
 
 <!-- .slide: style="text-align: left" -->
 
-Aunque estas prácticas estándar de HTML se pueden usar directamente en React, se debe tener en cuenta que el atributo `for` se escribe como `htmlFor` en JSX, por lo que la migración de las mismas no es completamente directa. Cabe destacar sin embargo que el mapeo de atributos es muy sencillo utilizando esta librería:
+Aunque estas prácticas estándar de HTML se pueden usar directamente en React, se debe tener en cuenta que el atributo **for** se escribe como **htmlFor** en JSX, por lo que la migración de las mismas no es completamente directa.
 
 ```jsx
 <label htmlFor="namedInput">Name:</label>
 <input id="namedInput" type="text" name="name"/>
 ```
+<!-- .element: contenteditable="true" -->
+
+Cabe destacar sin embargo que el mapeo de atributos es muy sencillo utilizando esta librería:
 
 ----
 
@@ -180,7 +194,7 @@ El desarrollador debe asegurarse de que el usuario pueda acceder a todos los eve
 
 <!-- .slide: style="text-align: left" -->
 
-En el ejemplo siguiente esto no sucede dado solo puede funcionar bien para los usuarios con dispositivos de puntero, como un ratón, pero si lo hace solo con el teclado la funcionalidad se rompe al pasar al elemento siguiente, ya que el objeto `window` nunca recibe el evento `click`. Esto puede llevar a una funcionalidad oculta que impide que los usuarios utilicen su aplicación.
+En el ejemplo siguiente esto no sucede dado solo puede funcionar bien para los usuarios con dispositivos de puntero pero si lo hace solo con el teclado la funcionalidad se rompe al pasar al elemento siguiente, ya que el objeto **window** nunca recibe el evento **click**. Esto puede llevar a una funcionalidad oculta que impide que los usuarios utilicen su aplicación.
 
 ----
 
@@ -232,10 +246,11 @@ class OuterClickExample extends React.Component {
   }
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
-La misma funcionalidad se puede lograr utilizando un controlador de eventos apropiado, como `onBlur` y `onFocus`:
+La misma funcionalidad se puede lograr utilizando un controlador de eventos apropiado, como **onBlur** y **onFocus**:
 
 ```jsx
 class BlurExample extends React.Component {
@@ -297,6 +312,7 @@ class BlurExample extends React.Component {
   }
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -313,7 +329,7 @@ Hay una serie de herramientas que podemos utilizar para ayudar en la creación d
 La comprobación más fácil y también una de las más importantes es, por mucho, comprobar si se puede acceder a todo el sitio web y usarlo solo con el teclado. Hágalo de la siguiente forma:
 
 -  Desconecte su mouse.
--  Usando `Tab` y `Shift + Tab` para navegar.
+-  Usando **Tab** y **Shift + Tab** para navegar.
 -  Usando Enter para activar elementos.
 
 Cuando sea necesario, utilice las teclas de flecha del teclado para interactuar con algunos elementos, como menús y menús desplegables.
@@ -324,9 +340,13 @@ Cuando sea necesario, utilice las teclas de flecha del teclado para interactuar 
 
 ### Asistencia para el desarrollo
 
-El complemento [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugin-jsx-a11y) para ESLint proporciona linting de AST sobre los problemas de accesibilidad en tu JSX. Muchos IDE’s te permiten integrar estos hallazgos directamente en el análisis de código y las ventanas de código fuente.
+El complemento [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y) para ESLint proporciona linting de AST sobre los problemas de accesibilidad en tu JSX. Muchos IDE’s te permiten integrar esta herramienta directamente en el análisis de código y las ventanas donde se vea el mismo.
 
-`Create React App` tiene este complemento con un subconjunto de reglas activadas. Si desea habilitar aún más reglas de accesibilidad, puede crear un archivo `.eslintrc` en la raíz de su proyecto con este contenido:
+----
+
+<!-- .slide: style="text-align: left" -->
+
+**Create React App** tiene este complemento con un subconjunto de reglas activadas. Para habilitar aún más reglas de accesibilidad, se debe crear un archivo **.eslintrc** en la raíz de su proyecto con este contenido:
 
 ```json
 {
@@ -334,6 +354,7 @@ El complemento [eslint-plugin-jsx-a11y] (https://github.com/evcohen/eslint-plugi
   "plugins": ["jsx-a11y"]
 }
 ```
+<!-- .element: contenteditable="true" -->
 
 ----
 
@@ -347,15 +368,16 @@ Existen varias herramientas que pueden ejecutar auditorías de accesibilidad en 
 
 <!-- .slide: style="text-align: left" -->
 
-#### Inspectores de accesibilidad y el Árbol de Accesibilidad
+### Inspectores de accesibilidad y el Árbol de Accesibilidad
 
-El `Árbol de Accesibilidad` es un subconjunto del árbol DOM que contiene objetos accesibles para cada elemento del DOM que debería ser expuesto a la tecnología de asistencia, como los lectores de pantalla.
+El **Árbol de Accesibilidad** es un subconjunto del árbol DOM que contiene objetos accesibles para cada elemento del DOM que debería ser expuesto a la tecnología de asistencia, como los lectores de pantalla.
+
+----
 
 En algunos navegadores podemos ver fácilmente la información de accesibilidad para cada elemento en el árbol de accesibilidad:
 
 -  [Usando el inspector de accesibilidad en Firefox](https://developer.mozilla.org/en-US/docs/Tools/Accessibility_inspector)
 -  [Activar el inspector de accesibilidad en Chrome](https://gist.github.com/marcysutton/0a42f815878c159517a55e6652e3b23a)
-
 
 ----
 
@@ -363,7 +385,7 @@ En algunos navegadores podemos ver fácilmente la información de accesibilidad 
 
 ### Lectores de pantalla
 
-Las pruebas con un lector de pantalla deben formar parte de sus pruebas de accesibilidad.
+Las pruebas con un lector de pantalla deben formar parte de las pruebas de accesibilidad.
 
-Ten en cuenta que las combinaciones de navegador/lector de pantalla son importantes. Se recomienda que pruebe su aplicación en el navegador que mejor se adapte a su lector de pantalla.
+Se debe tener en cuenta que las combinaciones de navegador/lector de pantalla son importantes. Se recomienda probar la aplicación en el navegador que mejor se adapte a un lector de pantalla dado.
 
