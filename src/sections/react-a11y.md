@@ -78,9 +78,9 @@ El HTML semántico es la base de la accesibilidad en una aplicación web. Hacien
 
 <!-- .slide: style="text-align: left" -->
 
-A veces rompemos la semántica HTML cuando agregamos elementos **<div>** en JSX.
+A veces rompemos la semántica HTML cuando agregamos elementos **`<div>`** en JSX.
 
--  Parche para hacer que nuestro código React funcione, especialmente cuando trabajamos con listas (**<ol>**, **<ul>** y **<dl>**) y la etiqueta **<table>** de HTML. 
+-  Parche para hacer que nuestro código React funcione, especialmente cuando trabajamos con listas (**`<ol>`**, **`<ul>`** y **`<dl>`**) y la etiqueta **`<table>`** de HTML. 
 
 -  En estos casos, deberíamos usar _**Fragmentos React**_ para agrupar varios elementos.
 
@@ -160,7 +160,7 @@ function ListItem({ item }) {
 
 ### Etiquetas
 
-Todos los controles de formulario HTML, como **<input>** y **<textarea>**, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
+Todos los controles de formulario HTML, como **`<input>`** y **`<textarea>`**, deben ser etiquetados de forma accesible. Necesitamos proporcionar etiquetas descriptivas que también estén expuestas a los lectores de pantalla.
 
 Los siguientes representations nos muestran cómo hacer esto:
 
